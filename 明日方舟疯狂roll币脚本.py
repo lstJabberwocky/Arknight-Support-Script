@@ -1,8 +1,7 @@
-#明日方舟四结局洞,茧成绢roll币刷钱脚本
-
-
 from pynput.mouse import Button, Controller
 import pyautogui
+from clickScreenScript import click
+import json
 import time
 import keyboard
 
@@ -14,7 +13,7 @@ print("=" * 50)
 
 time.sleep(5)
 
-rollCount = 50
+rollCount = 10
 
 print("运行中")
 print("F8 停止")

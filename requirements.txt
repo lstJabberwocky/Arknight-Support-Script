@@ -1,3 +1,4 @@
 pynput
 pyautogui
 keyboard
+PySide6

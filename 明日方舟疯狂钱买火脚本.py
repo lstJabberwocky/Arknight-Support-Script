@@ -25,7 +25,7 @@ with open("coordinate.json", "r") as f:
     coordinates = json.load(f)
 
 choumouX,choumouY = coordinates["gusi"]
-fireCount = 30
+fireCount = 50
 
 
 while True:

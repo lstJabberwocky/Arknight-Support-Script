@@ -8,6 +8,7 @@ ctypes.windll.user32.SetProcessDPIAware()
 mouse = Controller()
 
 
+#click(x坐标, y坐标, 点击次数, 点击间隔(默认1秒), 鼠标按键(默认左键))
 def click(x, y, clickCount, gap=1, button=Button.left):
 
     mouse.position = (x, y)
