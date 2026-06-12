@@ -198,7 +198,6 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     window = Window()
     window.setWindowFlag(Qt.WindowStaysOnTopHint, True)
-    window.move(1250, 150)
     window.show()
     sys.exit(app.exec())
 
