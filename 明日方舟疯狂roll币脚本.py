@@ -134,12 +134,14 @@ class RollWindow(QtWidgets.QWidget):
         OperationsCount = OperationsCount*2
 
         def start():
-  #          self.showMinimized()
+            time.sleep(1)
+#          self.showMinimized()
             for i in range(OperationsCount):
-                if click(RollCoo[0],RollCoo[1],1):
+                if not click(RollCoo[0],RollCoo[1],1):
                     break
-                if click(SkipCoo[0],SkipCoo[1],1):
+                if not click(SkipCoo[0],SkipCoo[1],1):
                     break
+            
 
         self.BT_StartOperation.clicked.connect(start)
 

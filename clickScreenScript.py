@@ -1,15 +1,25 @@
 from pynput.mouse import Button, Controller
 import time
 import keyboard
-import asyncio
+
     
 import ctypes
 ctypes.windll.user32.SetProcessDPIAware()
-
 mouse = Controller()
+
+stop_flag = False
+
+def stop():
+    global stop_flag
+    stop_flag = True
+
+
+#退出点击函数快捷键hotkey
+hotkey = 'F8'
 
 #click(x坐标, y坐标, 点击次数, 点击间隔(默认1秒), 鼠标按键(默认左键))
 def click(x, y, clickCount, gap=1, button=Button.left):
+    global stop_flag
 
     mouse.position = (x, y)
     for _ in range(clickCount):
@@ -24,6 +34,10 @@ def click(x, y, clickCount, gap=1, button=Button.left):
             return False
         if keyboard.is_pressed('F8'):
             print("触发F8键紧急停止")
+            return False
+        
+        keyboard.add_hotkey(hotkey, lambda: stop())
+        if stop_flag:
             return False
         
     return True
