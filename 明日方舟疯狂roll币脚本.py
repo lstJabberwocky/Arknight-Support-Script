@@ -134,7 +134,7 @@ class RollWindow(QtWidgets.QWidget):
         OperationsCount = OperationsCount*2
 
         def start():
-            time.sleep(1)
+            time.sleep(5)
 #          self.showMinimized()
             for i in range(OperationsCount):
                 if not click(RollCoo[0],RollCoo[1],1):
