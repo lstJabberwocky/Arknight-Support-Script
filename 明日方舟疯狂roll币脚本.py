@@ -1,5 +1,6 @@
 from pynput.mouse import Button, Controller
 import pyautogui
+import clickScreenScript
 from clickScreenScript import click
 import json
 import time
@@ -131,16 +132,32 @@ class RollWindow(QtWidgets.QWidget):
             text = self.LE_OperationsCount.text()
             OperationsCount = int(text)
     
-        OperationsCount = OperationsCount*2
+        
 
         def start():
-            time.sleep(5)
+            self.PTE_log.appendPlainText('明日方舟疯狂roll币脚本启动')
+            self.PTE_log.appendPlainText('在等待两秒后将开始点击,请切换到游戏窗口')
+            time.sleep(2)
 #          self.showMinimized()
-            for i in range(OperationsCount):
+            for i in range(1,OperationsCount+1):
                 if not click(RollCoo[0],RollCoo[1],1):
+                    clickScreenScript.stop_flag = False
                     break
                 if not click(SkipCoo[0],SkipCoo[1],1):
+                    clickScreenScript.stop_flag = False
                     break
+
+                if not click(RollCoo[0],RollCoo[1],1):
+                    clickScreenScript.stop_flag = False
+                    break
+                if not click(SkipCoo[0],SkipCoo[1],1):
+                    clickScreenScript.stop_flag = False
+                    break
+
+                
+                
+                self.PTE_log.appendPlainText(f'第 {i} 次操作完成')
+
             
 
         self.BT_StartOperation.clicked.connect(start)

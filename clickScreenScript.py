@@ -13,7 +13,6 @@ def stop():
     global stop_flag
     stop_flag = True
 
-
 #退出点击函数快捷键hotkey
 hotkey = 'F8'
 
