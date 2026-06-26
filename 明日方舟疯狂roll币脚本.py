@@ -136,7 +136,9 @@ class RollWindow(QtWidgets.QWidget):
 
         def start():
             self.PTE_log.appendPlainText('明日方舟疯狂roll币脚本启动')
-            self.PTE_log.appendPlainText('在等待两秒后将开始点击,请切换到游戏窗口')
+            self.PTE_log.appendPlainText('在等待两秒后将开始点击,将自动隐藏当前窗口')
+            QtWidgets.QApplication.processEvents()
+
             time.sleep(2)
 #          self.showMinimized()
             for i in range(1,OperationsCount+1):
